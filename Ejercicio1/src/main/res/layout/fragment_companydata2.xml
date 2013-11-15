@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#ffdcdcdc"
+    tools:context=".CompanyData2Activity$PlaceholderFragment">
+
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/deposer"/>
+
+        <EditText
+            android:id="@+id/textCIFCData2"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="20dp"
+            android:enabled="false"
+            android:hint="@string/cifData2"/>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="58dp"
+            android:paddingTop="20dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="41dp"
+                android:src="@drawable/itmaterial"
+                android:id="@+id/imageViewITMaterial" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ITMaterial"
+                android:id="@+id/checkBoxIT" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="58dp"
+            android:paddingTop="20dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="41dp"
+                android:src="@drawable/fridge"
+                android:id="@+id/imageViewFridge" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Fridge"
+                android:id="@+id/checkBoxIT" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="58dp"
+            android:paddingTop="20dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="41dp"
+                android:src="@drawable/oil"
+                android:id="@+id/imageViewOil" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Oil"
+                android:id="@+id/checkBoxOil" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="58dp"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="80dp"
+                android:text="@string/totalweight"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/textWeightCData2"
+                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:enabled="false"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/kg"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_deposite"
+            android:id="@+id/button_deposite"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="right"
+            android:enabled="false"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

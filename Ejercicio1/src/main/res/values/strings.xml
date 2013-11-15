@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ejercicio1</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="usuario">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="button1">Entrar</string>
+    <string name="title_activity_user_type">Tipo de Usuario</string>
+    <string name="cif">CIF</string>
+    <string name="int_cif">Introduzca el CIF</string>
+    <string name="citizen">Ciudadano</string>
+    <string name="company">Empresa</string>
+    <string name="title_activity_company_data1">Datos de la empresa</string>
+    <string name="button_deposito">Iniciar depósito</string>
+    <string name="companyname">Nombre empresa</string>
+    <string name="phone">555–34323423</string>
+    <string name="email">email@empresa</string>
+    <string name="web">http://empresa.com</string>
+    <string name="button_siguiente">Siguiente</string>
+    <string name="button_call">Llamar</string>
+    <string name="button_send">Enviar</string>
+    <string name="button_open">Abrir</string>
+    <string name="title_activity_company_data2">Depositante</string>
+    <string name="deposer">Depositante</string>
+    <string name="cifData2">20432134X</string>
+    <string name="ITMaterial">Material informático</string>
+    <string name="Fridge">Neveras</string>
+    <string name="Oil">Aceites usados</string>
+    <string name="button_deposite">Depositar</string>
+    <string name="totalweight">Peso total:</string>
+    <string name="kg">Kg.</string>
+    <string name="title_activity_result">Resultados</string>
+    <string name="cost">Coste</string>
+    <string name="button_sendbymail">Enviar por email</string>
+    <string name="button_reg_dep">Registrar depósito</string>
+    <string name="dep_result">Resultados depósito</string>
+
+
+</resources>
