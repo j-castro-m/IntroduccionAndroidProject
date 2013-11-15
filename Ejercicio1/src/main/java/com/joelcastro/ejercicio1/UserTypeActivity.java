@@ -58,6 +58,7 @@ public class UserTypeActivity extends Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_usertype, container, false);
+            //test
             return rootView;
         }
     }
