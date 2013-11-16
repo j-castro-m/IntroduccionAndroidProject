@@ -186,8 +186,10 @@ public class CompanyData1Activity extends Activity {
 
         button_email.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(CompanyData1Activity.this, UserTypeActivity.class);
-                startActivity(intent);
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto",email.getText().toString(), null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Asunto");
+                startActivity(Intent.createChooser(emailIntent, "Enviar email..."));
             }
         });
 
@@ -200,8 +202,8 @@ public class CompanyData1Activity extends Activity {
 
         button_web.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(CompanyData1Activity.this, UserTypeActivity.class);
-                startActivity(intent);
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(web.getText().toString()));
+                startActivity(browserIntent);
             }
         });
 
