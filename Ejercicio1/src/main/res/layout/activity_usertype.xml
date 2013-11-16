@@ -1,7 +1,64 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserTypeActivity"
-    tools:ignore="MergeRootFrame" />
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#ffdcdcdc">
+    <LinearLayout
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="51dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:id="@+id/rbuttonCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/company"/>
+
+            <RadioButton
+                android:id="@+id/rbuttonEmpresa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/citizen"
+                android:checked="false"/>
+        </RadioGroup>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="@string/int_cif"/>
+
+        <EditText
+            android:id="@+id/userTypeCIF"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="20dp"
+            android:hint="@string/cif"/>
+
+        <Button
+            android:id="@+id/button_deposito"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_deposito"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="right"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
