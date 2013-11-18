@@ -41,6 +41,9 @@ public class CompanyData1Activity extends Activity {
         final Button button_web = (Button) findViewById(R.id.buttonWebCData1);
 
 
+        final Bundle extra = this.getIntent().getExtras();
+        cif.setText(extra.getString("cif"));
+
         cif.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
@@ -180,6 +183,7 @@ public class CompanyData1Activity extends Activity {
         button_siguiente.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(CompanyData1Activity.this, CompanyData2Activity.class);
+                intent.putExtra("company",extra.getBoolean("company"));
                 startActivity(intent);
             }
         });

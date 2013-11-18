@@ -9,6 +9,7 @@
     <string name="button1">Entrar</string>
     <string name="title_activity_user_type">Tipo de Usuario</string>
     <string name="cif">CIF</string>
+    <string name="nif">NIF</string>
     <string name="int_cif">Introduzca el CIF</string>
     <string name="citizen">Ciudadano</string>
     <string name="company">Empresa</string>

@@ -34,7 +34,7 @@
                 android:text="@string/company"/>
 
             <RadioButton
-                android:id="@+id/rbuttonEmpresa"
+                android:id="@+id/rbuttonCiudadano"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/citizen"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:layout_marginTop="20dp"
-            android:hint="@string/cif"/>
+            android:hint="@string/nif"/>
 
         <Button
             android:id="@+id/button_deposito"

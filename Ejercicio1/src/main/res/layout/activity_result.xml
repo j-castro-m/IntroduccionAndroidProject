@@ -52,21 +52,89 @@
             android:id="@+id/result_tipo_residuo"
             android:textSize="18sp"/>
 
+
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:id="@+id/result_cost_text"
-            android:text="@string/cost"/>
-
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/result_cost"
-            android:textSize="18sp"
-            android:text="89 Kg * 2,5€/Kb\t\t\t222,5€\nIVA (20%)\t\t\t\t\t\t\t\t\t44,5€\n-------------------------------------------\nTotal \t\t\t\t\t\t\t\t\t\t\t\t\t\t267€"/>
+            android:text="@string/cost"
+            android:visibility="invisible"/>
 
 
+        <GridLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/GridResult"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="89 Kg. * 2,5€/Kg"
+                android:id="@+id/textDataResult"
+                android:layout_row="0"
+                android:layout_column="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="222,5€"
+                android:id="@+id/NumberDataResult"
+                android:layout_row="0"
+                android:layout_column="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IVA(20%)"
+                android:id="@+id/IVA"
+                android:layout_row="1"
+                android:layout_column="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="44,5€"
+                android:id="@+id/TextIVAResult"
+                android:layout_row="1"
+                android:layout_column="2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-----------------------"
+                android:layout_row="3"
+                android:layout_column="0" />
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="1" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-----------"
+                android:layout_row="3"
+                android:layout_column="2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:id="@+id/total"
+                android:layout_row="4"
+                android:layout_column="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="44,5€"
+                android:id="@+id/TextTotalResult"
+                android:layout_row="4"
+                android:layout_column="2" />
+
+
+
+
+            </GridLayout>
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

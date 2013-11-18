@@ -23,6 +23,21 @@ public class UserTypeActivity extends Activity {
 
         final Button button = (Button) findViewById(R.id.button_deposito);
         final EditText cif = (EditText) findViewById(R.id.userTypeCIF);
+        final RadioButton rbcom = (RadioButton) findViewById(R.id.rbuttonCompany);
+        final RadioButton rbper = (RadioButton) findViewById(R.id.rbuttonCiudadano);
+
+
+        rbcom.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                cif.setHint("CIF");
+            }
+        });
+
+        rbper.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                cif.setHint("NIF");
+            }
+        });
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -31,11 +46,15 @@ public class UserTypeActivity extends Activity {
                 if(((RadioButton) findViewById(R.id.rbuttonCompany)).isChecked())
                 {
                     Intent intent = new Intent(UserTypeActivity.this, CompanyData1Activity.class);
+                    intent.putExtra("cif",cif.getText().toString());
+                    intent.putExtra("company",true);
                     startActivity(intent);
                 }
                 else
                 {
-                    Intent intent = new Intent(UserTypeActivity.this, resultActivity.class);
+                    Intent intent = new Intent(UserTypeActivity.this, CompanyData2Activity.class);
+                    intent.putExtra("cif",cif.getText().toString());
+                    intent.putExtra("company",false);
                     startActivity(intent);
                 }
 
