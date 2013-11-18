@@ -184,6 +184,7 @@ public class CompanyData1Activity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(CompanyData1Activity.this, CompanyData2Activity.class);
                 intent.putExtra("company",extra.getBoolean("company"));
+                intent.putExtra("email",email.getText().toString());
                 startActivity(intent);
             }
         });

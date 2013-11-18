@@ -107,6 +107,7 @@
                 android:id="@+id/textWeightCData2"
                 android:layout_height="wrap_content"
                 android:layout_width="60dp"
+                android:inputType="numberDecimal"
                 android:enabled="false"
                 android:layout_gravity="center"
                 />

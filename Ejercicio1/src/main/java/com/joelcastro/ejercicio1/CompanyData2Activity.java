@@ -84,6 +84,7 @@ public class CompanyData2Activity extends Activity {
                  intent.putExtra("Oil",cboil.isChecked());
                  intent.putExtra("Peso",peso.getText().toString());
                  intent.putExtra("company",extra.getBoolean("company"));
+                 intent.putExtra("email",extra.getString("email"));
                  startActivity(intent);
              }
          });
