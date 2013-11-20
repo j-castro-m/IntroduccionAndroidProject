@@ -1,4 +1,4 @@
-package com.joelcastro.ejercicio1;
+package com.joelcastro.introduccionandroid;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -45,14 +45,14 @@ public class UserTypeActivity extends Activity {
 
                 if(((RadioButton) findViewById(R.id.rbuttonCompany)).isChecked())
                 {
-                    Intent intent = new Intent(UserTypeActivity.this, CompanyData1Activity.class);
+                    Intent intent = new Intent(UserTypeActivity.this, CompanyDataActivity.class);
                     intent.putExtra("cif",cif.getText().toString());
                     intent.putExtra("company",true);
                     startActivity(intent);
                 }
                 else
                 {
-                    Intent intent = new Intent(UserTypeActivity.this, CompanyData2Activity.class);
+                    Intent intent = new Intent(UserTypeActivity.this, TypeAndQuantityActivity.class);
                     intent.putExtra("cif",cif.getText().toString());
                     intent.putExtra("company",false);
                     startActivity(intent);

@@ -1,19 +1,12 @@
-package com.joelcastro.ejercicio1;
+package com.joelcastro.introduccionandroid;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,12 +14,12 @@ import android.widget.TextView;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CompanyData1Activity extends Activity {
+public class CompanyDataActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_companydata1);
+        setContentView(R.layout.activity_companydata);
 
         final EditText cif = (EditText) findViewById(R.id.textCIFCData1);
         final EditText name = (EditText) findViewById(R.id.textCNameCData1);
@@ -182,7 +175,7 @@ public class CompanyData1Activity extends Activity {
 
         button_siguiente.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(CompanyData1Activity.this, CompanyData2Activity.class);
+                Intent intent = new Intent(CompanyDataActivity.this, TypeAndQuantityActivity.class);
                 intent.putExtra("company",extra.getBoolean("company"));
                 intent.putExtra("email",email.getText().toString());
                 startActivity(intent);

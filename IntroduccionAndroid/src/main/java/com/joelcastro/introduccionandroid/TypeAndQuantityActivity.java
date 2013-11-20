@@ -1,28 +1,21 @@
-package com.joelcastro.ejercicio1;
+package com.joelcastro.introduccionandroid;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-public class CompanyData2Activity extends Activity {
+public class TypeAndQuantityActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_companydata2);
+        setContentView(R.layout.activity_typeandquantity);
 
         final EditText peso = (EditText) findViewById(R.id.textWeightCData2);
         final EditText cif = (EditText) findViewById(R.id.textCIFCData2);
@@ -77,7 +70,7 @@ public class CompanyData2Activity extends Activity {
 
          button.setOnClickListener(new View.OnClickListener() {
              public void onClick(View v) {
-                 Intent intent = new Intent(CompanyData2Activity.this, resultActivity.class);
+                 Intent intent = new Intent(TypeAndQuantityActivity.this, resultActivity.class);
                  intent.putExtra("cif",cif.getText().toString());
                  intent.putExtra("ITmat",cbit.isChecked());
                  intent.putExtra("Fridge",cbfg.isChecked());

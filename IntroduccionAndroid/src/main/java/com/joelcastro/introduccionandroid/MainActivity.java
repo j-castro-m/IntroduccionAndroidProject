@@ -1,4 +1,4 @@
-package com.joelcastro.ejercicio1;
+package com.joelcastro.introduccionandroid;
 
 
 import android.app.Activity;

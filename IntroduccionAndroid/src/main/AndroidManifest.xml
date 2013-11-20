@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.joelcastro.ejercicio1"
+    package="com.joelcastro.introduccionandroid"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.joelcastro.ejercicio1.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.joelcastro.ejercicio1.UserTypeActivity"
+            android:name=".UserTypeActivity"
             android:label="@string/title_activity_user_type"
             android:parentActivityName="MainActivity" >
             <meta-data
@@ -34,7 +34,7 @@
                 android:value="MainActivity" />
         </activity>
         <activity
-            android:name="com.joelcastro.ejercicio1.CompanyData1Activity"
+            android:name=".CompanyDataActivity"
             android:label="@string/title_activity_company_data1"
             android:parentActivityName="UserTypeActivity" >
             <meta-data
@@ -42,11 +42,11 @@
                 android:value="UserTypeActivity" />
         </activity>
         <activity
-            android:name="com.joelcastro.ejercicio1.CompanyData2Activity"
+            android:name=".TypeAndQuantityActivity"
             android:label="@string/title_activity_company_data2" >
         </activity>
         <activity
-            android:name="com.joelcastro.ejercicio1.resultActivity"
+            android:name=".resultActivity"
             android:label="@string/title_activity_result" >
         </activity>
     </application>
