@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
@@ -15,7 +16,9 @@ public class resultActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_result);
+
 
         final TextView cif = (TextView) findViewById(R.id.result_CIF);
         final TextView tipo_residuo = (TextView) findViewById(R.id.result_tipo_residuo);

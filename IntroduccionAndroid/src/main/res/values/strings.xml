@@ -37,6 +37,7 @@
     <string name="button_sendbymail">Enviar por email</string>
     <string name="button_reg_dep">Registrar depósito</string>
     <string name="dep_result">Resultados depósito</string>
-
+    <string name="title_activity_selection_place">SelectionPlaceActivity</string>
+    <string name="urlimagen">http://www.restauranteateneo.es/sites/all/themes/ateneo/images/bus.png</string>
 
 </resources>
