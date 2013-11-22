@@ -57,6 +57,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.joelcastro.introduccionandroid.MainActivity" />
         </activity>
+        <activity
+            android:name="com.joelcastro.introduccionandroid.InfoDomActivity"
+            android:label="@string/title_activity_info_dom"
+            android:parentActivityName="com.joelcastro.introduccionandroid.CompanyDataActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.joelcastro.introduccionandroid.CompanyDataActivity" />
+        </activity>
     </application>
 
 </manifest>

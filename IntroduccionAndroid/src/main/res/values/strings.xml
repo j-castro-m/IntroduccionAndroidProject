@@ -4,6 +4,7 @@
     <string name="app_name">IntroduccionAndroid</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_desconectar">Desconectar</string>
     <string name="usuario">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="button1">Entrar</string>
@@ -23,6 +24,7 @@
     <string name="button_call">Llamar</string>
     <string name="button_send">Enviar</string>
     <string name="button_open">Abrir</string>
+    <string name="info_dom">Ver información dominio</string>
     <string name="title_activity_company_data2">Depositante</string>
     <string name="deposer">Depositante</string>
     <string name="cifData2">20432134X</string>
@@ -32,12 +34,30 @@
     <string name="button_deposite">Depositar</string>
     <string name="totalweight">Peso total:</string>
     <string name="kg">Kg.</string>
+    <string name="currency">€</string>
     <string name="title_activity_result">Resultados</string>
     <string name="cost">Coste</string>
     <string name="button_sendbymail">Enviar por email</string>
     <string name="button_reg_dep">Registrar depósito</string>
     <string name="dep_result">Resultados depósito</string>
+    <string name="asunto_email_result">Factura</string>
+    <string name="body_email_result">El coste de su deposito asciende a </string>
     <string name="title_activity_selection_place">SelectionPlaceActivity</string>
     <string name="urlimagen">http://www.restauranteateneo.es/sites/all/themes/ateneo/images/bus.png</string>
+    <string name="title_activity_info_dom">Datos dominio de la empresa</string>
+    <string name="infodom_ip">Direccion IP:</string>
+    <string name="infodom_pais">País:</string>
+    <string name="infodom_localizacion">Localidad:</string>
+    <string name="infodom_coordenadas">Coordenadas:</string>
+
+    <string-array name="sectores_array">
+        <item>Automoción</item>
+        <item>Servicios</item>
+        <item>Informática</item>
+        <item>Sanidad</item>
+        <item>Residuos Peligrosos</item>
+    </string-array>
+
+
 
 </resources>

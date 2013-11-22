@@ -25,7 +25,7 @@ public class resultActivity extends Activity {
         final TextView result_cost_text = (TextView) findViewById(R.id.result_cost_text);
         final GridLayout grid = (GridLayout) findViewById(R.id.GridResult);
         final GridLayout grid2 = (GridLayout) findViewById(R.id.GridResult2);
-        final View linea = (View) findViewById(R.id.Linea);
+        final View linea = findViewById(R.id.Linea);
 
         final Button enviaremail = (Button) findViewById(R.id.button_sendbymail);
         final Button fin_reg = (Button) findViewById(R.id.button_reg_dep);
@@ -43,10 +43,10 @@ public class resultActivity extends Activity {
         double iva = precio * 0.2;
         final double total = precio + iva;
 
-        textCoste.setText(String.valueOf(peso)+ "Kg. * 2,5€/Kg");
-        textPrecio.setText(String.valueOf(precio)+"€");
-        textIVa.setText(String.valueOf(iva)+"€");
-        textTotal.setText(String.valueOf(total)+"€");
+        textCoste.setText(String.valueOf(peso)+ getString(R.string.kg)+" * 2,5"+getString(R.string.currency)+"/"+getString(R.string.kg));
+        textPrecio.setText(String.valueOf(precio)+getString(R.string.currency));
+        textIVa.setText(String.valueOf(iva)+getString(R.string.currency));
+        textTotal.setText(String.valueOf(total)+getString(R.string.currency));
 
 
         if(extra.getBoolean("company"))
@@ -72,11 +72,11 @@ public class resultActivity extends Activity {
         {
             if(tipos.length()>0)
             {
-                tipos = tipos+(" ,Material Informático");
+                tipos = tipos+(" ,"+getString(R.string.ITMaterial));
             }
             else
             {
-                tipos = tipos+("Material Informático");
+                tipos = tipos+(getString(R.string.ITMaterial));
             }
         }
 
@@ -84,11 +84,11 @@ public class resultActivity extends Activity {
         {
             if(tipos.length()>0)
             {
-                tipos = tipos+(", Neveras");
+                tipos = tipos+(", "+getString(R.string.Fridge));
             }
             else
             {
-                tipos = tipos+("Neveras");
+                tipos = tipos+(getString(R.string.Fridge));
             }
         }
 
@@ -96,11 +96,11 @@ public class resultActivity extends Activity {
         {
             if(tipos.length()>0)
             {
-                tipos = tipos+(", Aceites usados");
+                tipos = tipos+(", "+getString(R.string.Oil));
             }
             else
             {
-                tipos = tipos+("Aceites usados");
+                tipos = tipos+(getString(R.string.Oil));
             }
         }
 
@@ -112,8 +112,8 @@ public class resultActivity extends Activity {
             public void onClick(View v) {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                         "mailto", emailF, null));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Factura");
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "El coste de su deposito asciende a "+String.valueOf(total)+"€");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.asunto_email_result));
+                emailIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.body_email_result)+String.valueOf(total)+"€");
                 startActivity(Intent.createChooser(emailIntent, "Enviar email..."));
             }
         });

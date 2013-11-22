@@ -6,10 +6,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.regex.Matcher;
@@ -20,7 +25,6 @@ public class CompanyDataActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_companydata);
 
 
@@ -32,9 +36,17 @@ public class CompanyDataActivity extends Activity {
 
 
         final Button button_siguiente = (Button) findViewById(R.id.button_siguiente);
+        final Button button_dominio = (Button) findViewById(R.id.info_dom);
         final Button button_phone = (Button) findViewById(R.id.buttonPhoneCData1);
         final Button button_email = (Button) findViewById(R.id.buttonEmailCData1);
         final Button button_web = (Button) findViewById(R.id.buttonWebCData1);
+
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sectores_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
 
 
         final Bundle extra = this.getIntent().getExtras();
@@ -111,6 +123,8 @@ public class CompanyDataActivity extends Activity {
                 Boolean bophone = correctPhone(phone,button_phone);
                 Boolean boweb = correctWeb(web,button_web);
 
+
+
                 if (valid(cif)&&bomail&&bophone&&boweb&&name.getText().toString().length()>0) {
                     button_siguiente.setEnabled(true);
                 } else {
@@ -137,6 +151,8 @@ public class CompanyDataActivity extends Activity {
                 Boolean bomail = correctMail(email,button_email);
                 Boolean bophone = correctPhone(phone,button_phone);
                 Boolean boweb = correctWeb(web,button_web);
+
+
 
                 if (valid(cif)&&bomail&&bophone&&boweb&&name.getText().toString().length()>0) {
                     button_siguiente.setEnabled(true);
@@ -165,6 +181,8 @@ public class CompanyDataActivity extends Activity {
                 Boolean bophone = correctPhone(phone,button_phone);
                 Boolean boweb = correctWeb(web,button_web);
 
+                button_dominio.setEnabled(boweb);
+
                 if (valid(cif)&&bomail&&bophone&&boweb&&name.getText().toString().length()>0) {
                     button_siguiente.setEnabled(true);
                 } else {
@@ -175,6 +193,13 @@ public class CompanyDataActivity extends Activity {
         }
         );
 
+        button_dominio.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(CompanyDataActivity.this, InfoDomActivity.class);
+                intent.putExtra("url", web.getText().toString());
+                startActivity(intent);
+            }
+        });
 
         button_siguiente.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -208,7 +233,34 @@ public class CompanyDataActivity extends Activity {
             }
         });
 
+
+
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.selection_place, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()) {
+            case R.id.action_desconectar:
+                Intent intent = new  Intent(CompanyDataActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     public boolean valid(TextView tv)
     {

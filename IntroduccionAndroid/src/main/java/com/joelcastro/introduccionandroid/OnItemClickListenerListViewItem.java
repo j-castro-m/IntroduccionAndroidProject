@@ -11,9 +11,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.TextView;
 
 
-/*
- * Here you can control what to do next when the user selects an item
- */
 public class OnItemClickListenerListViewItem implements OnItemClickListener {
 
     @Override
@@ -23,10 +20,10 @@ public class OnItemClickListenerListViewItem implements OnItemClickListener {
 
         TextView textViewItem = ((TextView) view.findViewById(R.id.textViewItem));
 
-        // get the clicked item name
+
         String listItemText = textViewItem.getText().toString();
 
-        // get the clicked item ID
+
         String listItemId = textViewItem.getTag().toString();
 
 
