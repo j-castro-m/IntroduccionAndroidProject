@@ -2,7 +2,9 @@ package com.joelcastro.introduccionandroid;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -25,11 +27,24 @@ public class MainActivity extends Activity {
         final EditText tusuario = (EditText) findViewById(R.id.textUserMain);
         final EditText tpass = (EditText) findViewById(R.id.textPassMain);
 
+        final SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        String user = prefs.getString("usuario", "");
+        String pass = prefs.getString("pass", "");
+
+        tusuario.setText(user);
+        tpass.setText(pass);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("usuario", tusuario.getText().toString());
+                editor.putString("pass", tpass.getText().toString());
+                editor.commit();
                 Intent intent = new Intent(MainActivity.this, SelectionPlaceActivity.class);
                 startActivity(intent);
+
+
             }
         });
 

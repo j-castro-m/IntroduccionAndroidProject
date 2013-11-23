@@ -53,6 +53,7 @@
     <string name="textSalir">¿Desea cerrar sesión?</string>
     <string name="button_edit">Editar</string>
     <string name="date_text">Fecha de cobro:</string>
+    <string name="end_toast">Depósito registrado</string>
 
 
 
