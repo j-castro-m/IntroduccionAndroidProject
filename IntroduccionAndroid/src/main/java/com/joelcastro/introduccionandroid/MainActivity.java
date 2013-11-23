@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -37,12 +38,28 @@ public class MainActivity extends Activity {
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("usuario", tusuario.getText().toString());
-                editor.putString("pass", tpass.getText().toString());
-                editor.commit();
-                Intent intent = new Intent(MainActivity.this, SelectionPlaceActivity.class);
-                startActivity(intent);
+
+                if((tusuario.getText().toString().equals("user"))&&(tpass.getText().toString().equals("pass")))
+                {
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("usuario", tusuario.getText().toString());
+                    editor.putString("pass", tpass.getText().toString());
+                    editor.commit();
+                    Intent intent = new Intent(MainActivity.this, SelectionPlaceActivity.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Context context = getApplicationContext();
+                    CharSequence text = getString(R.string.bad_login);
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                    tusuario.setText("");
+                    tpass.setText("");
+                }
+
 
 
             }
