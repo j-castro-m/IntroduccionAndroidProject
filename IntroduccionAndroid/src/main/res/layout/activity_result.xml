@@ -24,6 +24,12 @@
             android:layout_width="wrap_content"
             android:text="@string/dep_result"
             android:textSize="18sp"/>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/result_Place"
+            android:textSize="18sp"/>
 
         <TextView
             android:layout_height="wrap_content"
@@ -133,20 +139,38 @@
                 android:id="@+id/TextTotalResult"
                 android:layout_row="4"
                 android:layout_column="2" />
-
-
-
-
             </GridLayout>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/date_text"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <EditText
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:hint="22/02/2013"
+                android:id="@+id/textDateCData"/>
+
+            <Button
+                android:id="@+id/buttonDate"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/button_edit"/>
+        </LinearLayout>
+
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/button_sendbymail"
             android:id="@+id/button_sendbymail"
-            android:layout_marginTop="20dp"
             android:layout_gravity="right"
-            android:drawableLeft="@drawable/email"
-            android:visibility="invisible"/>
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/email"/>
 
         <Button
             android:layout_width="fill_parent"

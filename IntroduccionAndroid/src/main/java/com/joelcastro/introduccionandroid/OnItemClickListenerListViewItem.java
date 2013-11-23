@@ -29,8 +29,8 @@ public class OnItemClickListenerListViewItem implements OnItemClickListener {
 
         Intent intent = new Intent().setClass(context, UserTypeActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("ID", listItemId);
-        intent.putExtra("NAME", listItemText);
+        intent.putExtra("IDParada", listItemId);
+        intent.putExtra("nombreParada", listItemText);
         context.startActivity(intent);
 
     }

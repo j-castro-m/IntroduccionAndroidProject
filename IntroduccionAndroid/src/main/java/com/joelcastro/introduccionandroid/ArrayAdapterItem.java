@@ -53,7 +53,7 @@ public class ArrayAdapterItem extends ArrayAdapter<ItemListParada> {
 
 
         new DownloadImageTask((ImageView) convertView.findViewById(R.id.image4List))
-                .execute("http://www.restauranteateneo.es/sites/all/themes/ateneo/images/bus.png");
+                .execute(objectItem.urlImage);
         return convertView;
 
     }

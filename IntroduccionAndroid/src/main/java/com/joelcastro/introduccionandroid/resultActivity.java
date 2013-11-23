@@ -1,22 +1,37 @@
 package com.joelcastro.introduccionandroid;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
+
 public class resultActivity extends Activity {
+    private int mYear;
+    private int mMonth;
+    private int mDay;
+    private TextView date;
+    private Button edit;
+    static final int DATE_DIALOG_ID = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_result);
 
 
@@ -34,15 +49,18 @@ public class resultActivity extends Activity {
         final TextView textPrecio = (TextView) findViewById(R.id.NumberDataResult);
         final TextView textIVa = (TextView) findViewById(R.id.TextIVAResult);
         final TextView textTotal = (TextView) findViewById(R.id.TextTotalResult);
+        final TextView textPlace = (TextView) findViewById(R.id.result_Place);
 
         final Bundle extra = this.getIntent().getExtras();
         String email = new String("");
+
+
 
         double peso = Double.parseDouble(extra.getString("Peso"));
         double precio = peso * 2.5;
         double iva = precio * 0.2;
         final double total = precio + iva;
-
+        textPlace.setText(extra.getString("nombreParada"));
         textCoste.setText(String.valueOf(peso)+ getString(R.string.kg)+" * 2,5"+getString(R.string.currency)+"/"+getString(R.string.kg));
         textPrecio.setText(String.valueOf(precio)+getString(R.string.currency));
         textIVa.setText(String.valueOf(iva)+getString(R.string.currency));
@@ -132,5 +150,79 @@ public class resultActivity extends Activity {
         });
 
 
+
+        date = (TextView) findViewById(R.id.textDateCData);
+        edit = (Button) findViewById(R.id.buttonDate);
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(DATE_DIALOG_ID);
+            }
+        });
+
+        final Calendar calendario= Calendar.getInstance();
+        mYear=calendario.get(Calendar.YEAR);
+        mMonth=calendario.get(Calendar.MONTH);
+        mDay=calendario.get(Calendar.DAY_OF_MONTH);
+        updateDisplay();
+    }
+
+    private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener(){
+        public void onDateSet(DatePicker view, int year, int month, int day){
+            mYear=year;
+            mMonth=month;
+            mDay=day;
+            updateDisplay();
+        }
+    };
+
+    @Override
+    protected Dialog onCreateDialog(int id)
+    {
+        switch (id){
+            case DATE_DIALOG_ID:
+                return new DatePickerDialog(this, mDateSetListener, mYear,mMonth,mDay);
+        }
+        return null;
+    }
+
+
+    private void updateDisplay(){
+        date.setText(new StringBuilder().append(mDay).append("/").append(mMonth+1).append("/").append(mYear));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.result, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()) {
+            case R.id.action_desconectar:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(getString(R.string.textSalir))
+                        .setCancelable(false)
+                        .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new  Intent(resultActivity.this, MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                                finish();}})
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();}});
+
+                AlertDialog alert = builder.create();
+                alert.show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

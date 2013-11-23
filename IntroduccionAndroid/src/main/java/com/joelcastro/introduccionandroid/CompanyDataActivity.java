@@ -1,6 +1,8 @@
 package com.joelcastro.introduccionandroid;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -50,7 +52,7 @@ public class CompanyDataActivity extends Activity {
 
 
         final Bundle extra = this.getIntent().getExtras();
-        cif.setText(extra.getString("cif"));
+           cif.setText(extra.getString("cif"));
 
         cif.addTextChangedListener(new TextWatcher() {
             @Override
@@ -197,6 +199,7 @@ public class CompanyDataActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(CompanyDataActivity.this, InfoDomActivity.class);
                 intent.putExtra("url", web.getText().toString());
+                intent.putExtra("nombreParada",extra.getString("nombreParada"));
                 startActivity(intent);
             }
         });
@@ -206,6 +209,7 @@ public class CompanyDataActivity extends Activity {
                 Intent intent = new Intent(CompanyDataActivity.this, TypeAndQuantityActivity.class);
                 intent.putExtra("company",extra.getBoolean("company"));
                 intent.putExtra("email",email.getText().toString());
+                intent.putExtra("nombreParada",extra.getString("nombreParada"));
                 startActivity(intent);
             }
         });
@@ -252,10 +256,21 @@ public class CompanyDataActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_desconectar:
-                Intent intent = new  Intent(CompanyDataActivity.this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(getString(R.string.textSalir))
+                    .setCancelable(false)
+                    .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new  Intent(CompanyDataActivity.this, MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                                finish();}})
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();}});
+
+                AlertDialog alert = builder.create();
+                alert.show();
                 return true;
         }
         return super.onOptionsItemSelected(item);
