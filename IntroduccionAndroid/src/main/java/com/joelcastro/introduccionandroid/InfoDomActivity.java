@@ -17,6 +17,11 @@ import android.os.Build;
 import android.view.Window;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 public class InfoDomActivity extends Activity {
 
     @Override
@@ -31,14 +36,19 @@ public class InfoDomActivity extends Activity {
         final TextView textCity = (TextView) findViewById(R.id.info_dom_city);
         final TextView textCountry = (TextView) findViewById(R.id.info_dom_country);
         final TextView textGps = (TextView) findViewById(R.id.info_dom_gps);
+        final GoogleMap mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 
         urlView.setText(extra.getString("url"));
 
-        objectJSON json = new objectJSON(this,textIP,textCity,textCountry,textGps);
+        objectJSON json = new objectJSON(this,textIP,textCity,textCountry,textGps,mMap);
         json.execute(extra.getString("url"));
 
 
         String gps = json.getGps();
+
+
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

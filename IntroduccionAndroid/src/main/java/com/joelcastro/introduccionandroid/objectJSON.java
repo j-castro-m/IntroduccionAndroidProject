@@ -5,6 +5,10 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
@@ -31,15 +35,17 @@ public class objectJSON extends AsyncTask<String, String, String> {
     private TextView city;
     private TextView gps;
     private ProgressDialog dialog;
+    private GoogleMap mMap;
 
 
 
-    public objectJSON(Context contexto, TextView ip, TextView city, TextView country,  TextView gps) {
+    public objectJSON(Context contexto, TextView ip, TextView city, TextView country,  TextView gps, GoogleMap mMap) {
         this.contexto = contexto;
         this.ip = ip;
         this.country = country;
         this.city = city;
         this.gps = gps;
+        this.mMap = mMap;
     }
 
     public String getGps() {
@@ -96,6 +102,10 @@ public class objectJSON extends AsyncTask<String, String, String> {
             country.setText(countryDomain);
             city.setText(cityDomain);
             gps.setText(coordinatesDomain);
+            LatLng usjLatLong = new LatLng(Double.valueOf(coordinates_lat),Double.valueOf(coordinates_long));
+            mMap.addMarker(new MarkerOptions()
+                    .position(usjLatLong));
+            mMap.setMyLocationEnabled(true);
 
         } catch (JSONException e) {
             e.printStackTrace();
